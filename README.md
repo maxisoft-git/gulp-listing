@@ -2,9 +2,8 @@
 生成HTML文件清单
 
 ## 安装
----
 ```
-    npm install --save-dev gulp-concat
+    npm install --save-dev gulp-listing
 ```
 
 ## 使用

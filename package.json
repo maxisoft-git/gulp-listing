@@ -1,6 +1,6 @@
 {
   "name": "gulp-listing",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -20,10 +20,6 @@
     "url": "https://github.com/taozhiw/gulp-listing/issues"
   },
   "homepage": "https://github.com/taozhiw/gulp-listing#readme",
-  "devDependencies": {
-    "gulp-util": "^3.0.7",
-    "through2": "^2.0.1"
-  },
   "dependencies": {
     "gulp-util": "^3.0.7",
     "through2": "^2.0.1"

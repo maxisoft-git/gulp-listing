@@ -3,6 +3,7 @@
 var through = require('through2');
 var path = require('path');
 var gutil = require('gulp-util');
+var fs = require('fs');
 var PluginError = gutil.PluginError;
 var File = gutil.File;
 
@@ -22,6 +23,8 @@ module.exports = function(file,opt) {
     var latestMod;
     var contents = '';
     var linkName = '';
+    var head;
+    var footer;
 
     if (typeof file === 'string') {
         fileName = file;
@@ -52,7 +55,7 @@ module.exports = function(file,opt) {
         linkName = (/<title>(.*)<\/title>/i.exec(file.contents.toString()));
         linkName = linkName === null ? '' : linkName[1];
 
-        contents += '<div><a href="' + file.relative + '">'+ linkName + '</a></div>';
+        contents += '<a href="' + file.relative + '">'+ linkName + '</a>';
 
         cb();
     }
@@ -72,6 +75,12 @@ module.exports = function(file,opt) {
         } else {
             joinedFile = new File(file);
         }
+
+        head = fs.readFileSync(process.cwd()+'/node_modules/gulp-listing/head.html');
+
+        footer = fs.readFileSync(process.cwd()+'/node_modules/gulp-listing/footer.html');
+
+        contents = head.toString() + contents + footer.toString();
 
         joinedFile.contents = new Buffer(contents);
 

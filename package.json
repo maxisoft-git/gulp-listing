@@ -22,6 +22,7 @@
   "homepage": "https://github.com/taozhiw/gulp-listing#readme",
   "dependencies": {
     "gulp-util": "^3.0.7",
+    "puppeteer": "^24.4.0",
     "through2": "^2.0.1"
   }
 }
